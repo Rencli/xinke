@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, Box, useTheme, useMediaQuery } from '@mui/material';
+import { 
+  AppBar, 
+  Toolbar, 
+  Typography, 
+  Button, 
+  IconButton, 
+  Drawer, 
+  List, 
+  ListItem, 
+  ListItemText, 
+  Box, 
+  useTheme, 
+  useMediaQuery,
+  Menu,
+  MenuItem
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [menuItem, setMenuItem] = useState(null);
+  const [anchorEl, setAnchorEl] = useState({});
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -19,41 +33,52 @@ const Navbar = () => {
       text: '关于我们', 
       path: '/about',
       subMenu: [
-        { text: '公司历史', path: '/about#history' },
-        { text: '资质荣誉', path: '/about#qualification' },
-        { text: '团队介绍', path: '/about#team' },
+        { text: '公司简介', path: '/about/intro' },
+        { text: '我们的资质', path: '/about/certificates' }
       ]
     },
     { 
       text: '产品与服务', 
       path: '/products',
       subMenu: [
-        { text: '换热器系列', path: '/products#heat-exchanger' },
-        { text: '蒸发设备', path: '/products#evaporator' },
-        { text: '定制服务', path: '/products#custom' },
+        { text: '监控系统', path: '/products#surveillance' },
+        { text: '计算机系列产品', path: '/products#computer' },
+        { text: '车辆门禁系统', path: '/products#vehicle' },
+        { text: '电视墙系统', path: '/products#tv-wall' },
+        { text: '液晶拼接显示系统', path: '/products#lcd' },
+        { text: 'LED显示屏', path: '/products#led' },
+        { text: '条码标签打印机', path: '/products#printer' },
+        { text: '条码识读器', path: '/products#scanner' }
       ]
     },
     { 
-      text: '行业解决方案', 
+      text: '经典案例', 
       path: '/solutions',
       subMenu: [
-        { text: '电力行业', path: '/solutions#power' },
-        { text: '暖通空调', path: '/solutions#hvac' },
-        { text: '化工制药', path: '/solutions#chemical' },
+        { text: '政府机关', path: '/solutions#government' },
+        { text: '金融机构', path: '/solutions#finance' },
+        { text: '教育机构', path: '/solutions#education' },
+        { text: '交通运输', path: '/solutions#transport' },
+        { text: '工业企业', path: '/solutions#industry' },
+        { text: '更多案例', path: '/solutions#more' }  // 添加查看更多选项
       ]
     },
-    { text: '新闻中心', path: '/news' },
-    { text: '联系我们', path: '/contact' },
+    { text: '工程实景', path: '/projects' },  // 修改这一行
+    { text: '联系我们', path: '/contact' }
   ];
 
-  const handleMenuOpen = (event, item) => {
-    setAnchorEl(event.currentTarget);
-    setMenuItem(item);
+  const handleClick = (event, path) => {
+    setAnchorEl({
+      ...anchorEl,
+      [path]: event.currentTarget
+    });
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    setMenuItem(null);
+  const handleClose = (path) => {
+    setAnchorEl({
+      ...anchorEl,
+      [path]: null
+    });
   };
 
   const handleDrawerToggle = () => {
@@ -92,16 +117,22 @@ const Navbar = () => {
     </List>
   );
 
+  const handleMenuClick = (path, subPath) => {
+    handleClose(path);
+    if (subPath && subPath.includes('#')) {
+      const id = subPath.split('#')[1];
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar 
-        position="fixed" 
-        sx={{ 
-          backgroundColor: 'white',
-          color: 'primary.main',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-        }}
-      >
+      <AppBar position="fixed" sx={{ backgroundColor: 'white', color: 'primary.main' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Typography
             variant="h6"
@@ -127,36 +158,50 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
           ) : (
-            <Box 
-              sx={{ 
-                display: 'flex', 
-                gap: 3,
-                alignItems: 'center'
-              }}
-            >
+            <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
               {menuItems.map((item) => (
-                <Button
-                  key={item.path}
-                  color="inherit"
-                  component={RouterLink}
-                  to={item.path}
-                  sx={{ 
-                    textDecoration: 'none',
-                    fontSize: '0.9rem',
-                    fontWeight: 'normal',
-                    '&:hover': {
-                      backgroundColor: 'rgba(0,0,0,0.04)'
-                    }
-                  }}
-                >
-                  {item.text}
-                </Button>
+                <Box key={item.path}>
+                  <Button
+                    color="inherit"
+                    onClick={(e) => item.subMenu && handleClick(e, item.path)}
+                    component={!item.subMenu ? RouterLink : undefined}
+                    to={!item.subMenu ? item.path : undefined}
+                    sx={{ 
+                      textDecoration: 'none',
+                      fontSize: '0.9rem',
+                      fontWeight: 'normal',
+                      '&:hover': {
+                        backgroundColor: 'rgba(0,0,0,0.04)'
+                      }
+                    }}
+                  >
+                    {item.text}
+                  </Button>
+                  {item.subMenu && (
+                    <Menu
+                      anchorEl={anchorEl[item.path]}
+                      open={Boolean(anchorEl[item.path])}
+                      onClose={() => handleClose(item.path)}
+                    >
+                      {item.subMenu.map((subItem) => (
+                        <MenuItem
+                          key={subItem.path}
+                          component={RouterLink}
+                          to={subItem.path}
+                          onClick={() => handleMenuClick(item.path, subItem.path)}
+                        >
+                          {subItem.text}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  )}
+                </Box>
               ))}
             </Box>
           )}
         </Toolbar>
       </AppBar>
-
+      <Toolbar />
       <Drawer
         variant="temporary"
         anchor="right"
@@ -168,8 +213,6 @@ const Navbar = () => {
       >
         {drawer}
       </Drawer>
-
-      <Toolbar />
     </Box>
   );
 };

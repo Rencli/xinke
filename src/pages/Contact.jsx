@@ -1,107 +1,92 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Paper, TextField, Button } from '@mui/material';
+import { Box, Container, Typography, Paper, Grid } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import aboutBanner from '../assets/images/about-banner.webp';
 
 const Contact = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // 处理表单提交逻辑
-  };
-
   return (
     <Box>
-      <Container maxWidth="lg">
-        {/* 联系方式 */}
-        <Box my={4}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            联系我们
-          </Typography>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6}>
-              <Paper elevation={3} sx={{ p: 3 }}>
-                <Typography variant="h6" gutterBottom>
-                  联系方式
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  地址：北京市朝阳区科技园区888号
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  电话：010-88888888
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  邮箱：info@xinke.com
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  工作时间：周一至周五 9:00-18:00
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Paper elevation={3} sx={{ p: 3 }}>
-                <Typography variant="h6" gutterBottom>
-                  在线咨询
-                </Typography>
-                <Box component="form" onSubmit={handleSubmit} noValidate>
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="name"
-                    label="您的姓名"
-                    name="name"
-                    autoComplete="name"
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="电子邮箱"
-                    name="email"
-                    autoComplete="email"
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="phone"
-                    label="联系电话"
-                    name="phone"
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="message"
-                    label="咨询内容"
-                    multiline
-                    rows={4}
-                  />
-                  <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    sx={{ mt: 3, mb: 2 }}
-                  >
-                    提交
-                  </Button>
-                </Box>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Box>
+      <Box
+        sx={{
+          height: '400px',
+          width: '100%',
+          backgroundImage: `url(${aboutBanner})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          mb: 4
+        }}
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex: 1
+          }}
+        />
+        <Typography
+          variant="h2"
+          component="h1"
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'white',
+            zIndex: 2,
+            textAlign: 'center',
+            fontSize: { xs: '2rem', md: '3.5rem' },
+            fontWeight: 'bold'
+          }}
+        >
+          联系我们
+        </Typography>
+      </Box>
 
-        {/* 地图定位 */}
-        <Box my={4}>
-          <Typography variant="h6" gutterBottom>
-            公司位置
-          </Typography>
-          <Paper elevation={3} sx={{ p: 3, height: '400px' }}>
-            {/* 这里可以集成地图组件，如百度地图或高德地图 */}
-            <Typography variant="body1" color="text.secondary">
-              地图加载中...
-            </Typography>
-          </Paper>
-        </Box>
+      <Container maxWidth="lg" sx={{ mb: 6 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Paper elevation={3} sx={{ p: 4 }}>
+              <Grid container spacing={4}>
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <LocationOnIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <Typography variant="h6">公司地址</Typography>
+                  </Box>
+                  <Typography variant="body1" sx={{ ml: 5 }}>
+                    新疆乌鲁木齐市红十月小区东二区13号楼2-901
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <PhoneIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <Typography variant="h6">联系电话</Typography>
+                  </Box>
+                  <Typography variant="body1" sx={{ ml: 5 }}>
+                    0991-4517768
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} md={4}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                    <EmailIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <Typography variant="h6">电子邮箱</Typography>
+                  </Box>
+                  <Typography variant="body1" sx={{ ml: 5 }}>
+                  465767648@qq.com
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
