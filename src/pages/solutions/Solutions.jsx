@@ -31,8 +31,8 @@ const Solutions = () => {
     government: {
       title: '政府机关',
       cases: [
-        { name: '乌鲁木齐市政府办公大楼及大院周边', content: '整体监控' },
-        { name: '乌鲁木齐市达板城区靓化工程', content: '整体区域平安城市安防监控项目' },
+        { name: '乌鲁木齐市政府办公大楼', content: '监控安防及周界报警系统' },
+        { name: '乌鲁木齐市达板城区雪亮工程', content: '整体区域安防监控项目' },
         { name: '乌鲁木齐市机关事务管理局', content: '监控安防项目' },
         { name: '乌鲁木齐县法院', content: '办公场所安防监控' },
         { name: '新疆司法厅', content: '机房改造及新增设备监控安防项目' }
@@ -41,9 +41,8 @@ const Solutions = () => {
     finance: {
       title: '金融机构',
       cases: [
-        { name: '上海浦东发展银行乌鲁木齐分行', content: '各营业部安防监控及网络建设' },
-        { name: '乌鲁木齐市商业银行', content: '各营业部安防监控' },
-        { name: '乌鲁木齐市商业银行', content: '远程视频会议系统' },
+        { name: '上海浦东发展银行乌鲁木齐分行', content: '系统集成及桌面运维' },
+        { name: '乌鲁木齐银行', content: '系统集成、视频会议系统' },
         { name: '天安保险股份有限公司新疆分公司', content: '办公楼安防监控' }
       ]
     },
