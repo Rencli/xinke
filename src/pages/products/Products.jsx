@@ -5,44 +5,34 @@ import aboutBanner from '../../assets/images/about-banner.webp';
 const Products = () => {
   const products = [
     {
-      title: '监控系统',
-      description: '提供专业的视频监控解决方案，包括高清摄像机、智能分析、远程监控等功能，适用于平安城市、智慧社区等场景',
-      imageUrl: '/images/products/surveillance-system.jpg'
+      title: '云与智能',
+      description: '提供云计算与智能化解决方案，助力企业数字化转型。',
+      imageUrl: '/images/products/cloud-intelligence.jpg'
     },
     {
-      title: '计算机系列产品',
-      description: '提供各类计算机设备及配套产品，满足不同场景的办公需求',
-      imageUrl: '/images/products/computer-series.jpg'
+      title: '公共安全',
+      description: '提供全面的公共安全解决方案，保障城市安全。',
+      imageUrl: '/images/products/public-safety.jpg'
     },
     {
-      title: '车辆门禁系统',
-      description: '智能化车辆管理系统，支持车牌识别、访客管理、实时监控等功能',
-      imageUrl: '/images/products/vehicle-access.jpg'
+      title: '智慧网络',
+      description: '构建高效的智慧网络，提升网络性能与安全。',
+      imageUrl: '/images/products/smart-network.jpg'
     },
     {
-      title: '电视墙系统',
-      description: '专业的大屏显示控制系统，支持多画面显示、画面分割、信号切换等功能',
-      imageUrl: '/images/products/tv-wall-system.jpg'
+      title: '数智计算',
+      description: '提供先进的数智计算平台，支持大数据分析与处理。',
+      imageUrl: '/images/products/digital-computing.jpg'
     },
     {
-      title: '液晶拼接显示系统',
-      description: '高清液晶拼接屏解决方案，适用于指挥中心、监控室等场景',
-      imageUrl: '/images/products/lcd-splicing.jpg'
+      title: '网络安全',
+      description: '提供全面的网络安全解决方案，保护企业信息安全。',
+      imageUrl: '/images/products/network-security.jpg'
     },
     {
-      title: 'LED显示屏',
-      description: '高亮度、高清晰度的LED显示解决方案，适用于户内外各类显示场景',
-      imageUrl: '/images/products/led-display.jpg'
-    },
-    {
-      title: '条码标签打印机',
-      description: '专业的条码打印设备，支持多种规格标签打印，适用于物流、仓储等领域',
-      imageUrl: '/images/products/barcode-printer.jpg'
-    },
-    {
-      title: '条码识读器',
-      description: '高效准确的条码扫描设备，支持多种条码格式，适用于各类商业场景',
-      imageUrl: '/images/products/barcode-scanner.jpg'
+      title: '企业办公',
+      description: '提供智能化企业办公解决方案，提高办公效率。',
+      imageUrl: '/images/products/enterprise-office.jpg'
     }
   ];
 
@@ -120,17 +110,15 @@ const Products = () => {
         </Typography>
 
         <Grid container spacing={4}>
-          {products.map((product, index) => (
-            <Grid item xs={12} md={6} key={index}>
+          {products.map((product) => (
+            <Grid item xs={12} md={6} key={product.title}>
               <Card 
-                id={product.title === '条码标签打印机' ? 'printer' :
-                    product.title === '条码识读器' ? 'scanner' :
-                    product.title === '监控系统' ? 'surveillance' :
-                    product.title === '计算机系列产品' ? 'computer' :
-                    product.title === '车辆门禁系统' ? 'vehicle' :
-                    product.title === '电视墙系统' ? 'tv-wall' :
-                    product.title === '液晶拼接显示系统' ? 'lcd' :
-                    product.title === 'LED显示屏' ? 'led' : ''}
+                id={product.title === '云与智能' ? 'cloud-intelligence' :
+                    product.title === '公共安全' ? 'public-safety' :
+                    product.title === '智慧网络' ? 'smart-network' :
+                    product.title === '数智计算' ? 'digital-computing' :
+                    product.title === '网络安全' ? 'network-security' :
+                    product.title === '企业办公' ? 'enterprise-office' : ''}
                 sx={{ 
                   height: '100%',
                   display: 'flex',

@@ -71,6 +71,8 @@ const Contact = () => {
                   </Box>
                   <Typography variant="body1" sx={{ ml: 5 }}>
                     0991-4517768
+                    <br />
+                    13809912421
                   </Typography>
                 </Grid>
 

@@ -41,14 +41,12 @@ const Navbar = () => {
       text: '产品与服务', 
       path: '/products',
       subMenu: [
-        { text: '监控系统', path: '/products#surveillance' },
-        { text: '计算机系列产品', path: '/products#computer' },
-        { text: '车辆门禁系统', path: '/products#vehicle' },
-        { text: '电视墙系统', path: '/products#tv-wall' },
-        { text: '液晶拼接显示系统', path: '/products#lcd' },
-        { text: 'LED显示屏', path: '/products#led' },
-        { text: '条码标签打印机', path: '/products#printer' },
-        { text: '条码识读器', path: '/products#scanner' }
+        { text: '云与智能', path: '/products#cloud-intelligence' },
+        { text: '公共安全', path: '/products#public-safety' },
+        { text: '智慧网络', path: '/products#smart-network' },
+        { text: '数智计算', path: '/products#digital-computing' },
+        { text: '网络安全', path: '/products#network-security' },
+        { text: '企业办公', path: '/products#enterprise-office' }
       ]
     },
     { 
