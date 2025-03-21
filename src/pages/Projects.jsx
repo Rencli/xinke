@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardMedia, CardContent } from '@mui/material';
+import aboutBanner from '../assets/images/about-banner.webp';  // 添加背景图导入
 
 const Projects = () => {
   const projects = [
@@ -62,16 +63,19 @@ const Projects = () => {
 
   return (
     <Box>
-      {/* 添加顶部横幅区域 */}
+      {/* 添加背景图片区域 */}
       <Box
         sx={{
           height: '400px',
           width: '100%',
+          backgroundImage: `url(${aboutBanner})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           position: 'relative',
-          mb: 6,
-          overflow: 'hidden'
+          mb: 4
         }}
       >
+        {/* 添加半透明遮罩 */}
         <Box
           sx={{
             position: 'absolute',
@@ -83,15 +87,7 @@ const Projects = () => {
             zIndex: 1
           }}
         />
-        <img
-          src="/images/solutions-banner.jpg"
-          alt="工程实景"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
-          }}
-        />
+        {/* 添加文字 */}
         <Typography
           variant="h2"
           component="h1"
@@ -111,7 +107,8 @@ const Projects = () => {
         </Typography>
       </Box>
 
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      {/* 原有内容 */}
+      <Container maxWidth="lg">
         <Grid container spacing={4}>
           {projects.map((project) => (
             <Grid item xs={12} sm={6} md={4} key={project.id}>
