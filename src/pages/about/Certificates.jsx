@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Paper, Grid } from '@mui/material';
-import aboutBanner from '../../assets/images/about-banner.webp';
+import aboutBanner from '../../assets/images/about-banner.jpg';  // 修改为 .jpg 格式
 
 const Certificates = () => {
   const certificates = [

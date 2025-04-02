@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Paper } from '@mui/material';
-import aboutBanner from '../../assets/images/about-banner.webp';  // 添加图片导入
+import aboutBanner from '../../assets/images/about-banner.jpg';  // 修改为 .jpg 格式
 
 const CompanyIntro = () => {
   return (

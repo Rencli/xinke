@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Box, Container, Typography, Grid, Card, CardContent } from '@mui/material';
-import aboutBanner from '../../assets/images/about-banner.webp';
+import aboutBanner from '../../assets/images/about-banner.jpg';  // 修改为 .jpg 格式
 
 const Solutions = () => {
   const location = useLocation();

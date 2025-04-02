@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardMedia, CardContent } from '@mui/material';
-import aboutBanner from '../assets/images/about-banner.webp';  // 添加背景图导入
+import aboutBanner from '../assets/images/about-banner.jpg';  // 修改为 .jpg 格式
 
 const Projects = () => {
   const projects = [

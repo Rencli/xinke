@@ -3,7 +3,7 @@ import { Box, Container, Typography, Paper, Grid } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
-import aboutBanner from '../assets/images/about-banner.webp';
+import aboutBanner from '../assets/images/about-banner.jpg';  // 修改为 .jpg 格式
 
 const Contact = () => {
   return (
