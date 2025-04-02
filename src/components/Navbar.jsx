@@ -143,7 +143,7 @@ const Navbar = () => {
               fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.25rem' }
             }}
           >
-            新科恒辰信息技术工程有限公司
+            新疆新科恒辰信息技术工程有限公司
           </Typography>
 
           {isMobile ? (

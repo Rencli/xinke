@@ -60,7 +60,7 @@ const Contact = () => {
                     <Typography variant="h6">公司地址</Typography>
                   </Box>
                   <Typography variant="body1" sx={{ ml: 5 }}>
-                    新疆乌鲁木齐市红十月小区东二区13号楼2-901
+                    新疆乌鲁木齐市红十月小区东二区13号楼2-902
                   </Typography>
                 </Grid>
 
